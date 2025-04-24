@@ -17,5 +17,18 @@ public class EjemploMetodoGetClass {
             System.out.println("metodos.getName() = " + metodos.getName());
         }
 
+        Integer num = 34;
+        Class intClss = num.getClass();
+        Class objClass = intClss.getSuperclass().getSuperclass();
+
+        System.out.println("intClss.getClass() = " + intClss.getClass());
+        System.out.println("intClss.getSuperclass() = " + intClss.getSuperclass());
+        System.out.println("objClass = " + objClass);
+
+        for (Method objMetodo: objClass.getMethods()){
+            System.out.println("obj = " + objMetodo.getName());
+        }
     }
+
+
 }
