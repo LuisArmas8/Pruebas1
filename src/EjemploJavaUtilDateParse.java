@@ -1,13 +1,32 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
 
 public class EjemploJavaUtilDateParse {
     public static void main(String[] args) {
-        SimpleDateFormat format =new SimpleDateFormat("yy-MM-dd");
+        //String fechaDb = "2023-04-20";
+
+        Scanner sc = new Scanner(System.in);
+
+        SimpleDateFormat format =new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println("Ingrese una fecha con formato 'yyyy-MM-dd'");
         try {
-            Date fecha = format.parse("2020-02-01");
+            Date fecha = format.parse(sc.next());
+            System.out.println("fecha = " + fecha);
+            System.out.println("format.format(fecha) = " + format.format(fecha));
+
+            Date fecha2 = new Date();
+            if(fecha.after(fecha2)){
+                System.out.println("Fecha (del usuario) es depues que fecha2 (actual)");
+            } else if (fecha.before(fecha2)) {
+                System.out.println("Fecha del usuario es anterior que fecha2");
+
+            } else if (fecha.equals(fecha2)) {
+                System.out.println("Fecha y fecha2 son iguales");
+            }
         }catch (ParseException e){
-            System.out.println("e = " + e);
+            e.printStackTrace();
         }
     }
 }
